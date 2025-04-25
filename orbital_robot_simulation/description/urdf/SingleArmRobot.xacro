@@ -1,0 +1,11 @@
+<robot name="single_arm_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- robot shape and phisics -->
+  <xacro:include filename="$(find orbital_robot_simulation)/description/urdf/sar_core.xacro" />
+
+  <!-- gazebo pulgin -->
+  <xacro:include filename="$(find orbital_robot_simulation)/description/gazebo/sar_gazebo.xacro" />
+
+  <!-- ros2 control plugin -->
+  <xacro:include filename="$(find orbital_robot_simulation)/description/ros2_control/sar_ros2_control.xacro" />
+
+</robot>

@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="PI" value="3.1415926535"/>
+
+  <xacro:property name="BASE_X" value="0.5"/>
+  <xacro:property name="BASE_Y" value="0.5"/>
+  <xacro:property name="BASE_Z" value="0.5"/>
+  <xacro:property name="BASE_MASS" value="50"/>
+  <xacro:property name="BASE_INERTIA_Z" value="0.13526810"/>
+
+  <xacro:property name="JOINT_1_LOWER" value="-${PI}"/>
+  <xacro:property name="JOINT_1_UPPER" value=" ${PI}"/>
+  <xacro:property name="JOINT_1_EFFORT" value="20"/>
+  <xacro:property name="JOINT_1_VELOCITY" value="${PI}"/>
+
+  <xacro:property name="LINK_1_X" value="0.1"/>
+  <xacro:property name="LINK_1_Y" value="0.1"/>
+  <xacro:property name="LINK_1_Z" value="0.1"/>
+  <xacro:property name="LINK_1_MASS" value="1.0"/>
+  <xacro:property name="LINK_1_INERTIA_Z" value="0.00255150"/>
+
+  <xacro:property name="JOINT_2_LOWER" value="-${PI}"/>
+  <xacro:property name="JOINT_2_UPPER" value=" ${PI}"/>
+  <xacro:property name="JOINT_2_EFFORT" value="20"/>
+  <xacro:property name="JOINT_2_VELOCITY" value="${PI}"/>
+
+  <xacro:property name="LINK_2_X" value="0.5"/>
+  <xacro:property name="LINK_2_Y" value="0.1"/>
+  <xacro:property name="LINK_2_Z" value="0.1"/>
+  <xacro:property name="LINK_2_MASS" value="1.0"/>
+  <xacro:property name="LINK_2_INERTIA_Z" value="0.00118507"/>
+
+  <xacro:property name="JOINT_3_LOWER" value="-${PI}"/>
+  <xacro:property name="JOINT_3_UPPER" value=" ${PI}"/>
+  <xacro:property name="JOINT_3_EFFORT" value="20"/>
+  <xacro:property name="JOINT_3_VELOCITY" value="${PI}"/>
+
+  <xacro:property name="LINK_3_X" value="0.5"/>
+  <xacro:property name="LINK_3_Y" value="0.1"/>
+  <xacro:property name="LINK_3_Z" value="0.1"/>
+  <xacro:property name="LINK_3_MASS" value="1.0"/>
+  <xacro:property name="LINK_3_INERTIA_Z" value="0.00128210"/>
+
+  <xacro:property name="JOINT_4_LOWER" value="-${PI}"/>
+  <xacro:property name="JOINT_4_UPPER" value=" ${PI}"/>
+  <xacro:property name="JOINT_4_EFFORT" value="20"/>
+  <xacro:property name="JOINT_4_VELOCITY" value="${PI}"/>
+
+  <xacro:property name="LINK_4_X" value="0.1"/>
+  <xacro:property name="LINK_4_Y" value="0.1"/>
+  <xacro:property name="LINK_4_Z" value="0.1"/>
+  <xacro:property name="LINK_4_MASS" value="1.0"/>
+  <xacro:property name="LINK_4_INERTIA_Z" value="0.00128210"/>
+
+  <xacro:property name="JOINT_5_LOWER" value="-${PI}"/>
+  <xacro:property name="JOINT_5_UPPER" value=" ${PI}"/>
+  <xacro:property name="JOINT_5_EFFORT" value="20"/>
+  <xacro:property name="JOINT_5_VELOCITY" value="${PI}"/>
+
+  <xacro:property name="LINK_5_X" value="0.25"/>
+  <xacro:property name="LINK_5_Y" value="0.1"/>
+  <xacro:property name="LINK_5_Z" value="0.1"/>
+  <xacro:property name="LINK_5_MASS" value="0.5"/>
+  <xacro:property name="LINK_5_INERTIA_Z" value="0.00128210"/>
+
+  <xacro:property name="JOINT_6_LOWER" value="-${PI}"/>
+  <xacro:property name="JOINT_6_UPPER" value=" ${PI}"/>
+  <xacro:property name="JOINT_6_EFFORT" value="20"/>
+  <xacro:property name="JOINT_6_VELOCITY" value="${PI}"/>
+
+  <xacro:property name="LINK_6_X" value="0.1"/>
+  <xacro:property name="LINK_6_Y" value="0.1"/>
+  <xacro:property name="LINK_6_Z" value="0.1"/>
+  <xacro:property name="LINK_6_MASS" value="0.5"/>
+  <xacro:property name="LINK_6_INERTIA_Z" value="0.00128210"/>
+
+  <xacro:property name="TARGET_X" value="0.5"/>
+  <xacro:property name="TARGET_Y" value="0.5"/>
+  <xacro:property name="TARGET_Z" value="0.5"/>
+  <xacro:property name="TARGET_MASS" value="5.0"/>
+
+</robot>

@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<!-- import xacro reffering here https://gbiggs.github.io/rosjp_urdf_tutorial_text/manipulator_urdf.html -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find orbital_robot_simulation)/description/urdf/sar_materials.xacro"/>
+  <xacro:include filename="$(find orbital_robot_simulation)/description/urdf/inertial_macros.xacro"/>
+  <xacro:include filename="$(find orbital_robot_simulation)/description/urdf/sar_properties.xacro"/>
+
+  <!-- Base Link -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${BASE_X} ${BASE_Y} ${BASE_Z}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${BASE_X} ${BASE_Y} ${BASE_Z}"/>
+      </geometry>
+    </collision>
+    <xacro:inertial_box mass="${BASE_MASS}" x="${BASE_X/2}" y="${BASE_Y/2}" z="${BASE_Z/2}">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:inertial_box>
+  </link>
+
+  <!-- Joint 1 -->
+  <joint name="joint_a" type="revolute">
+    <parent link="base_link"/>
+    <child link="link_1"/>
+    <origin xyz="${BASE_X/2} 0 ${BASE_Z/2}" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <position>1</position>
+    <limit lower="${JOINT_1_LOWER}" upper="${JOINT_1_UPPER}"
+      effort="${JOINT_1_EFFORT}" velocity="${JOINT_1_VELOCITY}"/>
+  </joint>
+
+  <!-- Link 1 -->
+  <link name="link_1">
+    <visual>
+      <origin xyz="0 0 ${LINK_1_Z/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_1_X} ${LINK_1_Y} ${LINK_1_Z}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 ${LINK_1_Z/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_1_X} ${LINK_1_Y} ${LINK_1_Z}"/>
+      </geometry>
+    </collision>
+    <xacro:inertial_box mass="${LINK_1_MASS}" x="${LINK_1_X/2}" y="${LINK_1_Y/2}" z="${LINK_1_Z/2}">
+      <origin xyz="0 0 ${LINK_1_Z/2}" rpy="0 0 0"/>
+    </xacro:inertial_box>
+  </link>
+
+  <!-- Joint 2 -->
+  <joint name="joint_b" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 ${LINK_1_Z}" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${JOINT_2_LOWER}" upper="${JOINT_2_UPPER}"
+      effort="${JOINT_2_EFFORT}" velocity="${JOINT_2_VELOCITY}"/>
+  </joint>
+
+  <!-- Link 2 -->
+  <link name="link_2">
+    <visual>
+      <origin xyz="${LINK_2_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_2_X} ${LINK_2_Y} ${LINK_2_Z}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="${LINK_2_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_2_X} ${LINK_2_Y} ${LINK_2_Z}"/>
+      </geometry>
+    </collision>
+    <xacro:inertial_box mass="${LINK_2_MASS}" x="${LINK_2_X/2}" y="${LINK_2_Y/2}" z="${LINK_2_Z/2}">
+      <origin xyz="${LINK_2_X/2} 0 0" rpy="0 0 0"/>
+    </xacro:inertial_box>
+  </link>
+
+  <!-- Joint 3 -->
+  <joint name="joint_c" type="revolute">
+    <parent link="link_2"/>
+    <child link="link_3"/>
+    <origin xyz="${LINK_2_X} 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${JOINT_3_LOWER}" upper="${JOINT_3_UPPER}"
+      effort="${JOINT_3_EFFORT}" velocity="${JOINT_3_VELOCITY}"/>
+  </joint>
+
+  <!-- Link 3 -->
+  <link name="link_3">
+    <visual>
+      <origin xyz="${LINK_3_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_3_X} ${LINK_3_Y} ${LINK_3_Z}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="${LINK_3_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_3_X} ${LINK_3_Y} ${LINK_3_Z}"/>
+      </geometry>
+    </collision>
+    <xacro:inertial_box mass="${LINK_3_MASS}" x="${LINK_3_X/2}" y="${LINK_3_Y/2}" z="${LINK_3_Z/2}">
+      <origin xyz="${LINK_3_X/2} 0 0" rpy="0 0 0"/>
+    </xacro:inertial_box>
+  </link>
+
+  <!-- Joint 4 -->
+  <joint name="joint_d" type="revolute">
+    <parent link="link_3"/>
+    <child link="link_4"/>
+    <origin xyz="${LINK_3_X} 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="${JOINT_4_LOWER}" upper="${JOINT_4_UPPER}"
+      effort="${JOINT_4_EFFORT}" velocity="${JOINT_4_VELOCITY}"/>
+  </joint>
+
+  <!-- Link 4 -->
+  <link name="link_4">
+    <visual>
+      <origin xyz="${LINK_4_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_4_X} ${LINK_4_Y} ${LINK_4_Z}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="${LINK_4_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_4_X} ${LINK_4_Y} ${LINK_4_Z}"/>
+      </geometry>
+    </collision>
+    <xacro:inertial_box mass="${LINK_4_MASS}" x="${LINK_4_X/2}" y="${LINK_4_Y/2}" z="${LINK_4_Z/2}">
+      <origin xyz="${LINK_4_X/2} 0 0" rpy="0 0 0"/>
+    </xacro:inertial_box>
+  </link>
+
+  <!-- Joint 5 -->
+  <joint name="joint_e" type="revolute">
+    <parent link="link_4"/>
+    <child link="link_5"/>
+    <origin xyz="${LINK_4_X} 0 0" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="${JOINT_5_LOWER}" upper="${JOINT_5_UPPER}"
+      effort="${JOINT_5_EFFORT}" velocity="${JOINT_5_VELOCITY}"/>
+  </joint>
+
+  <!-- Link 5 -->
+  <link name="link_5">
+    <visual>
+      <origin xyz="${LINK_5_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_5_X} ${LINK_5_Y} ${LINK_5_Z}"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+    <collision>
+      <origin xyz="${LINK_5_X/2} 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${LINK_5_X} ${LINK_5_Y} ${LINK_5_Z}"/>
+      </geometry>
+    </collision>
+    <xacro:inertial_box mass="${LINK_5_MASS}" x="${LINK_5_X/2}" y="${LINK_5_Y/2}" z="${LINK_5_Z/2}">
+      <origin xyz="${LINK_5_X/2} 0 0" rpy="0 0 0"/>
+    </xacro:inertial_box>
+  </link>
+
+  <!-- Joint 6 -->
+  <joint name="joint_f" type="revolute">
+    <parent link="link_5"/>
+    <child link="link_6"/>
+    <origin xyz="${LINK_5_X} 0 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="${JOINT_6_LOWER}" upper="${JOINT_6_UPPER}"
+      effort="${JOINT_6_EFFORT}" velocity="${JOINT_6_VELOCITY}"/>
+  </joint>
+
+  <link name="link_6">
+  <visual>
+    <origin xyz="${LINK_6_X/2} 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="${LINK_6_X} ${LINK_6_Y} ${LINK_6_Z}"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="${LINK_6_X/2} 0 0" rpy="0 0 0"/>
+    <geometry>
+      <box size="${LINK_6_X} ${LINK_6_Y} ${LINK_6_Z}"/>
+    </geometry>
+  </collision>
+  <xacro:inertial_box mass="${LINK_6_MASS}" x="${LINK_6_X/2}" y="${LINK_6_Y/2}" z="${LINK_6_Z/2}">
+    <origin xyz="${LINK_6_X/2} 0 0" rpy="0 0 0"/>
+  </xacro:inertial_box>
+</link>
+
+</robot>
